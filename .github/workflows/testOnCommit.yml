@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: echo "This job was automatically triggered by a commit"
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build ToH.sln --configuration Release --no-restore
       - name: Test
         run: dotnet test
       - run: "Done building and testing"
