@@ -1,0 +1,17 @@
+#Git it a name
+name: test on push
+
+#Decide when it should run
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job was automatically triggered by a commit"
+      - name: Build
+        run: dotnet build
+      - name: Test
+        run: dotnet test
+      - run: "Done building and testing"
+    
