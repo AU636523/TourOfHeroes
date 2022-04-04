@@ -9,7 +9,7 @@ public class Ui : IUi, IObserver
 {
     private readonly Controller _controller;
     private readonly ILog _log;
-    private Screen _screen;
+    private Screen _screen = default!;
 
     public Screen Screen
     {
@@ -24,7 +24,9 @@ public class Ui : IUi, IObserver
 
     public Ui(Controller controller, Screen? screen, ILog log, IScreenFactory screenFactory)
     {
+#pragma warning disable CS8601 // Possible null reference assignment.
         Screen = screen;
+#pragma warning restore CS8601 // Possible null reference assignment.
         ScreenFactory = screenFactory;
         _controller = controller;
         _log = log;

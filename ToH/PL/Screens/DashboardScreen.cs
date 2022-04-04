@@ -49,14 +49,18 @@ public class DashboardScreen : Screen
         if (cursorPosition == 0)
         {
             _log.Info($"DashboardScreen.Enter: Switching to HeroesListScreen");
-            ui.Screen = ui.ScreenFactory.CreateScreen(typeof(HeroesListScreen));
+#pragma warning disable CS8601 // Possible null reference assignment.
+                ui.Screen = ui.ScreenFactory.CreateScreen(typeof(HeroesListScreen));
+#pragma warning restore CS8601 // Possible null reference assignment.
         }
         else
         {
             var heroIndex = cursorPosition - 1;
             _log.Info($"DashboardScreen.Enter: Switching to HeroScreen for hero with index {heroIndex}");
             // TODO how to go back to right place
+#pragma warning disable CS8601 // Possible null reference assignment.
             ui.Screen = ui.ScreenFactory.CreateScreen(typeof(HeroScreen), _heroesController.GetDashboardHeroes()[heroIndex]);
+#pragma warning restore CS8601 // Possible null reference assignment.
         }
     }
     

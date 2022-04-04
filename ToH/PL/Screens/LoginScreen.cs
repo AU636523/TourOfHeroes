@@ -32,7 +32,10 @@ public class LoginScreen : Screen
         {
             _controller.Username = username;
             _log.Info($"LoginScreen.Text: Switching to DashboardScreen with username {username}");
+
+#pragma warning disable CS8601 // Possible null reference assignment.
             ui.Screen = ui.ScreenFactory.CreateScreen(typeof(DashboardScreen));
+#pragma warning restore CS8601 // Possible null reference assignment.
         }
     }
 }
