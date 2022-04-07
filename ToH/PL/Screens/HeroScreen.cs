@@ -28,11 +28,13 @@ public class HeroScreen : Screen
 
     public override void Escape(IUi ui)
     {
-        _log.Info($"HeroScreen.Escape: Switching to HeroesListScreen.");
-        var newScreen = ui.ScreenFactory.CreateScreen(typeof(HeroesListScreen));
+        _log.Info($"HeroScreen.Escape: Switching to {ui._previousScreen}");
+        
+        var newScreen = ui.ScreenFactory.CreateScreen(ui._previousScreen);
+
         if (newScreen != null)
         {
-            ui.Screen = newScreen;
+            ui.Screen= newScreen;
         }
     }
 }

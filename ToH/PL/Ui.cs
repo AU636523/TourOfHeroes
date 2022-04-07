@@ -10,6 +10,7 @@ public class Ui : IUi, IObserver
     private readonly Controller _controller;
     private readonly ILog _log;
     private Screen _screen = default!;
+    public Type _previousScreen { get; set; }
 
     public Screen Screen
     {
@@ -27,6 +28,7 @@ public class Ui : IUi, IObserver
 #pragma warning disable CS8601 // Possible null reference assignment.
         Screen = screen;
 #pragma warning restore CS8601 // Possible null reference assignment.
+        _previousScreen = typeof(DashboardScreen);
         ScreenFactory = screenFactory;
         _controller = controller;
         _log = log;
@@ -47,6 +49,7 @@ public class Ui : IUi, IObserver
                 Screen.Up(this);
                 break;
             case Action.Enter:
+                _previousScreen = _screen.GetType();
                 Screen.Enter(this);
                 break;
             case Action.Escape:

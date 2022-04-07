@@ -9,5 +9,5 @@ public abstract class Screen
     public virtual void Escape(IUi ui) {}
     public virtual void Text(IUi ui, string controllerValue) { }
 
-    public abstract void Init();
+    public abstract void Init( );
 }
