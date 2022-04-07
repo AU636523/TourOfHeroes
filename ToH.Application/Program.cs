@@ -7,6 +7,8 @@ using ToH.Log;
 using ToH.PL;
 using ToH.PL.Screens;
 
+Console.WriteLine("Hello");
+
 var db = new HeroesContainer();
 var heroesController = new HeroesController(db);
 var sessionController = new SessionController();
